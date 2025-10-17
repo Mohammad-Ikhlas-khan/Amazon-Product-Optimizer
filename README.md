@@ -45,6 +45,11 @@ DB_PASSWORD=your_mysql_password
 PORT=3000
 GEMINI_API_KEY=your_google_gemini_api_key
 ```
+Create a `.env` file inside the `frontend` folder with:
+```
+BASE_URL=your_backend_url
+
+```
 
 _Set up your MySQL server and create a blank database matching `DB_NAME` above._
 
