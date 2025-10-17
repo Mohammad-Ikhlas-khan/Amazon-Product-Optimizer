@@ -1,10 +1,12 @@
-const puppeteer = require('puppeteer');
+const chromium = require("chrome-aws-lambda");
+const puppeteer = require("puppeteer-core");
 
 
 const ScrappedDetails=async ({asin}) => {
   const browser = await puppeteer.launch({
-    headless: false,
-    defaultViewport: false,
+    args: chromium.args,
+    executablePath: await chromium.executablePath,
+    headless: chromium.headless,
   });
 
     const page = await browser.newPage();
