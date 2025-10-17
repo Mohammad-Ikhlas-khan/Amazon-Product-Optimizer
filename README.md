@@ -40,6 +40,7 @@ Create a `.env` file inside the `backend` folder with:
 ```
 DB_NAME=your_db_name
 DB_USER=your_mysql_user
+DB_HOST=your_host
 DB_PASSWORD=your_mysql_password
 PORT=3000
 GEMINI_API_KEY=your_google_gemini_api_key
