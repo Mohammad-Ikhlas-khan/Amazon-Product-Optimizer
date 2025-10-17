@@ -3,8 +3,11 @@ const puppeteer = require("puppeteer-core");
 
 
 const ScrappedDetails=async ({asin}) => {
-  const browser = await puppeteer.launch({
+  let browser;
+  try{
+  browser = await puppeteer.launch({
     args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
     executablePath: await chromium.executablePath,
     headless: chromium.headless,
   });
@@ -50,8 +53,10 @@ const ScrappedDetails=async ({asin}) => {
     else{
         throw new Error('Failed to fetch all product details');
     }
-
-    //await browser.close();
+}finally{
+     await browser.close();
+}
+    
 };
 
 module.exports=ScrappedDetails;
