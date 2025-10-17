@@ -1,15 +1,12 @@
-const chromium = require("chrome-aws-lambda");
-const puppeteer = require("puppeteer-core");
+const puppeteer = require("puppeteer");
 
 
 const ScrappedDetails=async ({asin}) => {
   let browser;
   try{
   browser = await puppeteer.launch({
-    args: chromium.args,
-    defaultViewport: chromium.defaultViewport,
-    executablePath: await chromium.executablePath,
-    headless: chromium.headless,
+    defaultViewport: false,
+    headless: false,
   });
 
     const page = await browser.newPage();
@@ -54,7 +51,7 @@ const ScrappedDetails=async ({asin}) => {
         throw new Error('Failed to fetch all product details');
     }
 }finally{
-     await browser.close();
+    if(browser) await browser.close();
 }
     
 };

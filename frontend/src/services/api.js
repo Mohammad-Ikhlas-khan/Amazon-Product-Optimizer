@@ -1,5 +1,4 @@
-const  BASE_URL=import.meta.env.BASE_URL;
-; // Update the port if your backend runs on a different port
+const  BASE_URL="http://localhost:3000/api";// Update the port if your backend runs on a different port
 
 export const API = {
 
